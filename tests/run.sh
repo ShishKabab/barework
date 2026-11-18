@@ -9,7 +9,10 @@ Cleanup() {
     find "$scratch" -depth -type d -exec rmdir {} \;
 }
 trap Cleanup EXIT
-cp -a "$infra/tests/fixtures/news-platform/." "$scratch/"
+fixture=${1:-$infra/tests/fixtures/news-platform}
+mkdir -p "$scratch/src"
+cp "$fixture/app.cfg" "$scratch/app.cfg"
+cp -a "$fixture/src/business" "$scratch/src/"
 mkdir -p "$scratch/build" "$scratch/src/generated"
 ln -s "$infra/external" "$scratch/external"
 ln -s "$infra/tests" "$scratch/tests"
