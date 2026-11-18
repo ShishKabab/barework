@@ -188,7 +188,7 @@ static void HandlerDeclaration(FILE *f, const declaration_ir *ir, usize route, c
     HandlerType(f, ir, route, query, false); fputs("_outcome ", f); HandlerName(f, ir, route, query);
     fputs("(route_", f); SnakeName(f, Route(ir, route), false); fputs("_context *context", f);
     if (query) { fputs(", ", f); QueryType(f, ir, *query); fputs("_result result", f); }
-    fputs(");\n\n", f);
+    fputs(");\n", f);
 }
 static void RouteHeader(FILE *f, const declaration_ir *ir, usize route)
 {
@@ -204,7 +204,7 @@ static void RouteHeader(FILE *f, const declaration_ir *ir, usize route)
     fputs("_context {\n    bump_allocator *arena;\n    const_byte_slice request;\n    route_", f); SnakeName(f, Route(ir, route), false);
     fputs("_state *state;\n} route_", f); SnakeName(f, Route(ir, route), false); fputs("_context;\n\n", f);
     HandlerDeclaration(f, ir, route, NULL, queries.len != 0);
-    SliceFor(list, i) { HandlerDeclaration(f, ir, route, &list.ptr[i], i + 1 < list.len); }
+    SliceFor(list, i) { fputc('\n', f); HandlerDeclaration(f, ir, route, &list.ptr[i], i + 1 < list.len); }
 }
 static void QueriesHeader(FILE *f, const declaration_ir *ir)
 {
