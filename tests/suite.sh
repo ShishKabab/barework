@@ -6,6 +6,7 @@ cd "$(dirname "$0")/.."
 source tests/server.sh
 ./build.sh
 ./tests/result_types.sh
+./tests/comments.sh
 ./tests/routes.sh
 ./tests/response.sh
 ./tests/workflow.sh

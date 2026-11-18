@@ -20,11 +20,10 @@ declaration_lex_result DeclarationLexNext(declaration_lexer *lexer)
     usize p = lexer->cursor;
     for (;;) {
         while (p < source.len && (source.ptr[p] == ' ' || source.ptr[p] == '\t' || source.ptr[p] == '\r' || source.ptr[p] == '\n')) ++p;
-        if (source.len - p < 2 || source.ptr[p] != '/') break;
-        if (source.ptr[p + 1] == '/') {
-            p += 2;
-            while (p < source.len && source.ptr[p] != '\n') ++p;
-        } else if (source.ptr[p + 1] == '*') {
+        if (p < source.len && source.ptr[p] == '#') {
+            ++p;
+            while (p < source.len && source.ptr[p] != '\n' && source.ptr[p] != '\r') ++p;
+        } else if (source.len - p >= 2 && source.ptr[p] == '/' && source.ptr[p + 1] == '*') {
             usize start = p;
             p += 2;
             while (source.len - p >= 2 && !(source.ptr[p] == '*' && source.ptr[p + 1] == '/')) ++p;

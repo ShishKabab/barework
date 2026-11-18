@@ -109,7 +109,7 @@ Files contain `version(integer)` and semicolon-terminated `collection(...)`, `ro
 - Objects, arrays, nested calls, and dotted member access.
 - Parenthesized callback parameters followed by `=>` and a statement block.
 - `let name = expression;`, `return expression;`, `return;`, and expression statements.
-- Trailing commas, whitespace, `//` comments, and `/* ... */` comments.
+- Trailing commas, whitespace, `#` line comments, and `/* ... */` comments.
 
 Braces in expression position mean an object. Callback bodies require
 `() => { ... }` or named parameters such as `(context) => { ... }`. Grouped
