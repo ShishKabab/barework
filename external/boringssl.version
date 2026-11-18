@@ -1,0 +1,9 @@
+Upstream: https://github.com/google/boringssl
+Release: 0.20261105.0
+Commit: 3dc4b63808921e914a3fb1fa61869abc3938781b
+Contents: unmodified git archive of the pinned commit, including licenses
+          and public headers in include/openssl. No git submodules.
+Archive: git archive --format=tar 3dc4b63808921e914a3fb1fa61869abc3938781b
+Archive SHA-256: 70635456eda6eaa27e6ccbc9383e74e3193d6af96221ebe07e3cab86dce644f6
+Verification: git fsck and content/mode comparison against the pinned checkout.
+Build: source vendoring only; not yet integrated into build.sh or linked.

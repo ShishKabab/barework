@@ -1,0 +1,18 @@
+Upstream: https://github.com/bytecodealliance/wasmtime
+Release: v50.0.1
+Commit: c307ec81de02852d815e9849f7c89d955c03c30d
+Contents: unmodified git archive of the pinned commit, including licenses,
+          Cargo.lock, and C API headers in crates/c-api/include.
+Archive: git archive --format=tar c307ec81de02852d815e9849f7c89d955c03c30d
+Archive SHA-256: bc7d90efdec5afa1b84180df821d641bc13d3b1d67cb20932591bcce8c3f7a8a
+Verification: git fsck and content/mode comparison against the pinned checkout.
+Build: build.sh links the matching upstream Linux x86-64 v50.0.1 C API runtime.
+       prepare-wasmtime.sh caches it under build/wasmtime and verifies SHA-256.
+       URL: https://github.com/bytecodealliance/wasmtime/releases/download/v50.0.1/wasmtime-v50.0.1-x86_64-linux-c-api.tar.xz
+       C API archive SHA-256: e2c0c26e1aef52f82f0b9918ad6f34cc30f4b557aee3e261cb127a9462be8f4d
+       Source remains unmodified. Cargo registry dependencies are not vendored;
+       Cargo.lock is preserved. The binary runtime is a build artifact, not a source replacement.
+Excluded git submodules (upstream test suites, not runtime sources):
+  tests/component-model: 5b724da8c634c4f2b2d2b3f6a4e9e13b4eb01596
+  tests/spec_testsuite: b464a4cd100d98175ae6e3890db89a2e6c8302f7
+  tests/wasi-testsuite: 6345da2237c562d9a94e281332c653b5528fdd52

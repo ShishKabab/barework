@@ -1,0 +1,5 @@
+Upstream: https://github.com/axboe/liburing
+Release: liburing-2.15
+Commit: d41bf9220ec39277ff235379e9089d9e0fd6c2a5
+Contents: unmodified git archive of the pinned commit, including licenses.
+Build: upstream configure and static library target; outputs in build/liburing.
